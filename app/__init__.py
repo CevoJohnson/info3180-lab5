@@ -5,6 +5,10 @@ from .config import Config
 
 app = Flask(__name__)
 
+''' app.config['SECRET_KEY'] = "Som3$ec5etK*y"  # you should make this more random and unique
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://lab5:lab5@localhost/database"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True  # added just to suppress a warning '''
+
 db = SQLAlchemy(app)
 
 # Flask-Login login manager
