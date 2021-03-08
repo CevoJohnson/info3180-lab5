@@ -58,7 +58,7 @@ def login():
 
             # remember to flash a message to the user
                 flash('You have logged in')
-                return redirect(url_for("secure-page"))  # they should be redirected to a secure-page route instead
+                return redirect(url_for("securepage"))  # they should be redirected to a secure-page route instead
             else:
                 flash('You are not logged in')
     return render_template("login.html", form=form)
@@ -76,10 +76,9 @@ def securepage():
     return render_template("secure_page.html")
 
 @app.route('/logout')
-@logout_user
+@login_required
 def logout():
-    logout_user
-    flash('You have logged out')
+    logout_user()
     return redirect(url_for("home"))
 
 ###
